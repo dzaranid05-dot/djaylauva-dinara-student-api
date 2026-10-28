@@ -2,6 +2,8 @@ package com.dinara.studentapi;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/api")
@@ -18,4 +20,10 @@ public class StudentController {
 
     @GetMapping("/students")
     public List<Student> all() { return repo.findAll(); }
+
+    @GetMapping("/students/{id}")
+    public Student one(@PathVariable Long id) {
+        return repo.findById(id).orElseThrow(() ->
+            new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
+    }
 }
