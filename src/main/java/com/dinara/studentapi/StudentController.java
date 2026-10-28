@@ -26,4 +26,21 @@ public class StudentController {
         return repo.findById(id).orElseThrow(() ->
             new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
     }
+
+    @PutMapping("/students/{id}")
+    public Student update(@PathVariable Long id, @RequestBody Student s) {
+        Student st = repo.findById(id).orElseThrow(() ->
+            new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found"));
+        st.setName(s.getName());
+        st.setEmail(s.getEmail());
+        return repo.save(st);
+    }
+
+    @DeleteMapping("/students/{id}")
+    public void delete(@PathVariable Long id) {
+        if (!repo.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Student not found");
+        }
+        repo.deleteById(id);
+    }
 }
