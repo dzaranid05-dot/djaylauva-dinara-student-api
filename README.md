@@ -3,3 +3,4 @@
 Изменение: добавлены получение по ID, обновление и удаление студентов (автор Dinara Djaylauva).
 Automation test by Dinara Djaylauva
 Automation test 2 by Dinara Djaylauva
+Automation test 3 by Dinara Djaylauva
