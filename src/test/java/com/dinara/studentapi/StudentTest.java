@@ -8,6 +8,6 @@ class StudentTest {
     void nameIsStored() {
         Student s = new Student();
         s.setName("Dinara Djaylauva");
-        assertEquals("Wrong Name", s.getName());
+        assertEquals("Dinara Djaylauva", s.getName());
     }
 }

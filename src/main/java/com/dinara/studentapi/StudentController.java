@@ -13,7 +13,7 @@ public class StudentController {
     public StudentController(StudentRepository repo) { this.repo = repo; }
 
     @GetMapping("/info")
-    public String info() { return "Student API v1.1 by Dinara Djaylauva, ID 38086"; }
+    public String info() { return "Student API by Dinara Djaylauva, ID 38086"; }
 
     @PostMapping("/students")
     public Student create(@RequestBody Student s) { return repo.save(s); }
